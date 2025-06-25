@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build Docker Image (no push)
 
 on:
   push:
@@ -12,11 +12,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.RuxaMuxa2008 }}" | docker login -u "${{ secrets.nakor1 }}" --password-stdin
-
     - name: Build Docker image
       run: docker build -t nakor1/animal-farm-nodejs:latest .
-
-    - name: Push Docker image
-      run: docker push nakor1/animal-farm-nodejs:latest
